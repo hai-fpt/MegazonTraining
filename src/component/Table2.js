@@ -272,10 +272,18 @@ export default function Table2() {
                         <option value={"assets"}>Assets</option>
                         <option value={"age"}>Age</option>
                     </select>
-                    <button className="bg-lime-500 ml-3 text-white font-bold py-2 px-4 rounded"
-                            onClick={() => requestSort(sortParam)}>
-                        {sortButton}
-                    </button>
+                    {sortParam != "" ? (
+                        <button className="bg-lime-500 ml-3 text-white font-bold py-2 px-4 rounded"
+                                onClick={() => requestSort(sortParam)}>
+                            {sortButton}
+                        </button>
+                    ) : (
+                        <button className="bg-lime-500 ml-3 text-white font-bold py-2 px-4 rounded disabled:bg-gray-500"
+                                disabled
+                                onClick={() => requestSort(sortParam)}>
+                            CHOOSE SORT
+                        </button>
+                    )}
                 </div>
                 <div className={'text-center'}>
                     <div>
